@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-grafico',
@@ -10,30 +11,44 @@ import { CommonModule } from '@angular/common';
 })
 export class GraficoComponent implements OnChanges {
   @Input() pokemonId: number = 1;
+  
   nombre: string = '';
-  types: string[] = [];
+  tipos: string[] = [];
   stats = {
     hp: 0,
-    atk: 0,
-    def: 0
+    ataque: 0,
+    defensa: 0,
+    ataqueEspecial: 0,
+    defensaEspecial: 0,
+    velocidad: 0
   };
 
+  constructor(private http: HttpClient) {}
+
   ngOnChanges() {
-    this.actualizarStats();
+    if (this.pokemonId) {
+      this.cargarDatosPokemon();
+    }
   }
 
-  private actualizarStats() {
-    // Simulación de stats basados en el ID
-    this.stats.hp = 45 + (this.pokemonId % 100);
-    this.stats.atk = 40 + (this.pokemonId % 80);
-    this.stats.def = 35 + (this.pokemonId % 90);
-    
-    // Nombres de ejemplo (podrías conectar con PokeAPI para datos reales)
-    const nombres = ['Bulbasaur', 'Charmander', 'Squirtle', 'Pikachu'];
-    this.nombre = nombres[this.pokemonId % nombres.length];
-    
-    // Tipos de ejemplo
-    const tiposDisponibles = ['Fuego', 'Agua', 'Planta', 'Eléctrico'];
-    this.types = [tiposDisponibles[this.pokemonId % tiposDisponibles.length]];
+  private cargarDatosPokemon() {
+    this.http.get(`https://pokeapi.co/api/v2/pokemon/${this.pokemonId}`)
+      .subscribe({
+        next: (data: any) => {
+          this.nombre = data.name;
+          this.tipos = data.types.map((t: any) => t.type.name);
+          this.stats = {
+            hp: data.stats[0].base_stat,
+            ataque: data.stats[1].base_stat,
+            defensa: data.stats[2].base_stat,
+            ataqueEspecial: data.stats[3].base_stat,
+            defensaEspecial: data.stats[4].base_stat,
+            velocidad: data.stats[5].base_stat
+          };
+        },
+        error: (error) => {
+          console.error('Error cargando datos del Pokémon:', error);
+        }
+      });
   }
 }

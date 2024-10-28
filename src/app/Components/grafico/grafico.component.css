@@ -1,47 +1,64 @@
 .stats {
-  background: rgba(255, 255, 255, 0.9);
   padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 80%
-  ; /* Ajusta el ancho aquí */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.type-badges {
+.tipos {
   display: flex;
   gap: 10px;
-  margin: 10px 0;
   justify-content: center;
+  margin: 10px 0;
 }
 
-.type-badge {
+.tipo-badge {
   padding: 5px 15px;
   border-radius: 20px;
+  background: #4CAF50;
   color: white;
-  font-weight: bold;
-  background: #6390F0; /* Color de fondo para los tipos */
+  font-size: 0.9em;
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .stat-bar {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-  gap: 10px;
-}
-
-.stat-label {
-  width: 45px; /* Reducido un poco */
-  font-weight: bold;
-}
-
-.stat-value {
+  flex-grow: 1;
   height: 20px;
-  background: linear-gradient(90deg, #30a7d7, #6390F0);
+  background: #e0e0e0;
   border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
   transition: width 0.3s ease;
 }
 
-.stat-number {
-  width: 35px; /* Reducido un poco */
-  text-align: right;
+.stat-bar span {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+label {
+  min-width: 100px;
+  font-weight: bold;
 }

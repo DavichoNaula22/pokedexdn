@@ -1,22 +1,59 @@
-<section class="stats">
-  <h1>{{ nombre }} - ID: {{ pokemonId.toString().padStart(3, '0') }}</h1>
-  <div class="type-badges">
-    <span class="type-badge" *ngFor="let type of types">{{ type }}</span>
+<section class="stats" *ngIf="nombre">
+  <h1>{{ nombre | titlecase }} - ID: {{ pokemonId }}</h1>
+  
+  <div class="tipos">
+    <span class="tipo-badge" *ngFor="let tipo of tipos">
+      {{ tipo | titlecase }}
+    </span>
   </div>
-  <h2>Stats:</h2>
-  <div class="stat-bar">
-    <span class="stat-label">HP:</span>
-    <div class="stat-value" [style.width.%]="stats.hp / 2"></div>
-    <span class="stat-number">{{ stats.hp }}</span>
-  </div>
-  <div class="stat-bar">
-    <span class="stat-label">ATK:</span>
-    <div class="stat-value" [style.width.%]="stats.atk / 2"></div>
-    <span class="stat-number">{{ stats.atk }}</span>
-  </div>
-  <div class="stat-bar">
-    <span class="stat-label">DEF:</span>
-    <div class="stat-value" [style.width.%]="stats.def / 2"></div>
-    <span class="stat-number">{{ stats.def }}</span>
+
+  <div class="stats-container">
+    <div class="stat-item">
+      <label>HP:</label>
+      <div class="stat-bar">
+        <div class="stat-fill" [style.width.%]="stats.hp/2"></div>
+        <span>{{ stats.hp }}</span>
+      </div>
+    </div>
+
+    <div class="stat-item">
+      <label>Ataque:</label>
+      <div class="stat-bar">
+        <div class="stat-fill" [style.width.%]="stats.ataque/2"></div>
+        <span>{{ stats.ataque }}</span>
+      </div>
+    </div>
+
+    <div class="stat-item">
+      <label>Defensa:</label>
+      <div class="stat-bar">
+        <div class="stat-fill" [style.width.%]="stats.defensa/2"></div>
+        <span>{{ stats.defensa }}</span>
+      </div>
+    </div>
+
+    <div class="stat-item">
+      <label>Ataque Esp.:</label>
+      <div class="stat-bar">
+        <div class="stat-fill" [style.width.%]="stats.ataqueEspecial/2"></div>
+        <span>{{ stats.ataqueEspecial }}</span>
+      </div>
+    </div>
+
+    <div class="stat-item">
+      <label>Defensa Esp.:</label>
+      <div class="stat-bar">
+        <div class="stat-fill" [style.width.%]="stats.defensaEspecial/2"></div>
+        <span>{{ stats.defensaEspecial }}</span>
+      </div>
+    </div>
+
+    <div class="stat-item">
+      <label>Velocidad:</label>
+      <div class="stat-bar">
+        <div class="stat-fill" [style.width.%]="stats.velocidad/2"></div>
+        <span>{{ stats.velocidad }}</span>
+      </div>
+    </div>
   </div>
 </section>

@@ -3,11 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { PokedexViewComponent } from './Components/pokedex-view/pokedex-view.component';
 
 @Component({
-  selector: 'app-root', 
+  selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, PokedexViewComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: '<app-pokedex-view></app-pokedex-view>',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'myapp';
