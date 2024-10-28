@@ -1,3 +1,11 @@
-<img [src]="imageUrl" alt="Pokemon Image">
-<button (click)="previousPokemon()">Pokemon Anterior</button>
-<button (click)="nextPokemon()">Siguiente Pokemon</button>
+<div class="pokemon-container">
+    <img [src]="imageUrl" alt="Pokemon" class="pokemon-image">
+    <div class="button-container">
+        <button (click)="previousPokemon()" class="nav-button">
+            <i class="fas fa-chevron-left"></i> Anterior
+        </button>
+        <button (click)="nextPokemon()" class="nav-button">
+            Siguiente <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</div>

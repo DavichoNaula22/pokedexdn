@@ -1,42 +1,47 @@
 .stats {
-  display: absolute;
-
- 
-  width: 90%;
- 
-  max-width: 600px; /* Limita el ancho para dispositivos grandes */
+  background: rgba(255, 255, 255, 0.9);
   padding: 20px;
-  border: 2px solid #333;
   border-radius: 15px;
-  background-color: #f0f0f5;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Agrega sombra para darle profundidad */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%
+  ; /* Ajusta el ancho aquí */
 }
 
-.health-container {
+.type-badges {
   display: flex;
-  justify-content: center; /* Centra los puntos horizontalmente */
+  gap: 10px;
+  margin: 10px 0;
+  justify-content: center;
+}
+
+.type-badge {
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  background: #6390F0; /* Color de fondo para los tipos */
+}
+
+.stat-bar {
+  display: flex;
   align-items: center;
-  width: 100%;
-  padding: 10px 0;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+.stat-label {
+  width: 45px; /* Reducido un poco */
+  font-weight: bold;
+}
+
+.stat-value {
+  height: 20px;
+  background: linear-gradient(90deg, #30a7d7, #6390F0);
   border-radius: 10px;
-  background-color: #e3e3e3;
-  margin: 15px 0; /* Margen superior e inferior más consistente */
-  box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra interna */
+  transition: width 0.3s ease;
 }
 
-.health {
-  width: 15px;
-  height: 15px;
-  background-color: #4caf50;
-  border-radius: 50%;
-  margin: 0 8px; /* Más espacio entre puntos */
-  transition: background-color 0.3s ease; /* Animación de cambio de color */
-}
-
-.health.low {
-  background-color: #ff9800; /* Amarillo para vida media */
-}
-
-.health.critical {
-  background-color: #f44336; /* Rojo para vida baja */
+.stat-number {
+  width: 35px; /* Reducido un poco */
+  text-align: right;
 }

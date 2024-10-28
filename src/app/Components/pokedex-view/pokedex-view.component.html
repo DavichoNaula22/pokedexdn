@@ -1,18 +1,15 @@
 <div class="pokedex-view">
-    <span class="title">Pokedex Bellaca</span>
-
-    <section class="pokedex">
-        <app-pokedex [imageUrl]='pokemonImagen' 
-        (clickPokemon)=" changePokemon($event)">
-       
-        </app-pokedex>
-        <div class="point-group">
-           
+    <div class="pokedex-container">
+        <h1 class="title">Pokédex</h1>
+        
+        <div class="display-section">
+            <app-pokedex [imageUrl]='pokemonImagen' 
+                        (clickPokemon)="changePokemon($event)">
+            </app-pokedex>
         </div>
-    </section>
 
-    <section class="graph">
-        <app-grafico></app-grafico>
-    </section>
-
+        <div class="stats-section">
+            <app-grafico [pokemonId]="pokemonId"></app-grafico>
+        </div>
+    </div>
 </div>

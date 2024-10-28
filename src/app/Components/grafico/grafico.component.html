@@ -1,16 +1,22 @@
 <section class="stats">
-  <h1>{{ nombre }} - ID: {{ id }}</h1>
-  <h2>Tipo: {{ tipo }}</h2>
-  <p>Ataques: {{ ataques }}</p>
-  <p>Ataque: {{ ataque }}</p>
-  <p>Defensa: {{ defensa }}</p>
-  
-  <h2>Vida:</h2>
-  <div *ngIf="vidaPokemon >= 0">
-    <span class="health" *ngIf="vidaPokemon > 0"></span>
-    <span class="health" *ngIf="vidaPokemon > 25"></span>
-    <span class="health" *ngIf="vidaPokemon > 50"></span>
-    <span class="health" *ngIf="vidaPokemon > 75"></span>
-    <span class="health" *ngIf="vidaPokemon >= 100"></span>
+  <h1>{{ nombre }} - ID: {{ pokemonId.toString().padStart(3, '0') }}</h1>
+  <div class="type-badges">
+    <span class="type-badge" *ngFor="let type of types">{{ type }}</span>
+  </div>
+  <h2>Stats:</h2>
+  <div class="stat-bar">
+    <span class="stat-label">HP:</span>
+    <div class="stat-value" [style.width.%]="stats.hp / 2"></div>
+    <span class="stat-number">{{ stats.hp }}</span>
+  </div>
+  <div class="stat-bar">
+    <span class="stat-label">ATK:</span>
+    <div class="stat-value" [style.width.%]="stats.atk / 2"></div>
+    <span class="stat-number">{{ stats.atk }}</span>
+  </div>
+  <div class="stat-bar">
+    <span class="stat-label">DEF:</span>
+    <div class="stat-value" [style.width.%]="stats.def / 2"></div>
+    <span class="stat-number">{{ stats.def }}</span>
   </div>
 </section>

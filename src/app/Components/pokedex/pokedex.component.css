@@ -1,10 +1,45 @@
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 .pokemon-image {
-  width: 70%;
-  height: auto;
-  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.3));
   transition: transform 0.3s ease;
 }
 
 .pokemon-image:hover {
   transform: scale(1.1);
+  animation: bounce 0.5s infinite alternate;
+}
+
+.controls {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background: #30a7d7;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #1b82b1;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
 }
