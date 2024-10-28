@@ -1,0 +1,10 @@
+.pokemon-image {
+  width: 70%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.pokemon-image:hover {
+  transform: scale(1.1);
+}
