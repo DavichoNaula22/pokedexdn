@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .pokedex-view {
     background: linear-gradient(45deg, #ee1515, #222224);
     height: 100vh;
@@ -26,7 +28,13 @@
     font-size: 2.5em;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    font-family: 'Pokemon Solid', sans-serif;
+    font-family: 'Press Start 2P', cursive;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #fff; }
+    to { text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6; }
 }
 
 .display-section {
@@ -45,4 +53,25 @@
     border: 3px solid #2c2c2c;
     border-radius: 15px;
     padding: 20px;
+}
+
+.control-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.control-button {
+    background: #ffcb05;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
