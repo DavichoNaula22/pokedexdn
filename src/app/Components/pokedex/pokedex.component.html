@@ -1,13 +1,46 @@
-<div class="pokemon-container">
-    <div class="pokemon-image-container">
-        <img [src]="imageUrl" alt="Pokemon" class="pokemon-image">
+<div class="arcade-container">
+    <div class="screen-container">
+      <div class="screen-overlay"></div>
+      
+      <div class="pokemon-header">
+        <span class="pokemon-number">No. {{pokemonId}}</span>
+        <h2 class="pokemon-name">{{pokemonName | titlecase}}</h2>
+      </div>
+  
+      <div class="main-display">
+        <img [src]="imageUrl" alt="Pokemon" class="pokemon-image" [class.loading]="isLoading">
+        
+        <div class="pokemon-types">
+          <span *ngFor="let type of pokemonTypes" 
+                class="type-badge"
+                [style.background-color]="getTypeColor(type)">
+            {{type | titlecase}}
+          </span>
+        </div>
+  
+        <p class="pokemon-description">{{pokemonDescription}}</p>
+      </div>
+  
+      <div class="evolution-chain" *ngIf="evolutionChain.length > 1">
+        <h3>Evoluciones</h3>
+        <div class="evolution-sprites">
+          <div *ngFor="let evo of evolutionChain" 
+               class="evolution-item"
+               [class.current]="evo.id === pokemonId"
+               (click)="selectEvolution(evo.id)">
+            <img [src]="evo.sprite" [alt]="evo.name">
+            <span>{{evo.name | titlecase}}</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="button-container">
-        <button (click)="previousPokemon()" class="nav-button">
-            <i class="fas fa-chevron-left"></i> Anterior
-        </button>
-        <button (click)="nextPokemon()" class="nav-button">
-            Siguiente <i class="fas fa-chevron-right"></i>
-        </button>
+  
+    <div class="controls">
+      <button (click)="previousPokemon()" class="arcade-btn">
+        <span class="btn-text">◄ Anterior</span>
+      </button>
+      <button (click)="nextPokemon()" class="arcade-btn">
+        <span class="btn-text">Siguiente ►</span>
+      </button>
     </div>
-</div>
+  </div>

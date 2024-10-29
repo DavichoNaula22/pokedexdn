@@ -19,9 +19,6 @@ export class PokedexViewComponent {
   }
 
   changePokemon(event: number) {
-    const audio = new Audio('assets/button-click.mp3');
-    audio.play();
-    
     this.pokemonId += event;
     if (this.pokemonId < 1) this.pokemonId = 1;
     this.actualizarImagen();
