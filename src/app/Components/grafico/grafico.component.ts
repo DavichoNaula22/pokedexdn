@@ -14,14 +14,7 @@ export class GraficoComponent implements OnChanges {
   
   nombre: string = '';
   tipos: string[] = [];
-  stats = {
-    hp: 0,
-    ataque: 0,
-    defensa: 0,
-    ataqueEspecial: 0,
-    defensaEspecial: 0,
-    velocidad: 0
-  };
+  statsArray: {name: string, value: number}[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -37,14 +30,14 @@ export class GraficoComponent implements OnChanges {
         next: (data: any) => {
           this.nombre = data.name;
           this.tipos = data.types.map((t: any) => t.type.name);
-          this.stats = {
-            hp: data.stats[0].base_stat,
-            ataque: data.stats[1].base_stat,
-            defensa: data.stats[2].base_stat,
-            ataqueEspecial: data.stats[3].base_stat,
-            defensaEspecial: data.stats[4].base_stat,
-            velocidad: data.stats[5].base_stat
-          };
+          this.statsArray = [
+            {name: 'HP', value: data.stats[0].base_stat},
+            {name: 'Ataque', value: data.stats[1].base_stat},
+            {name: 'Defensa', value: data.stats[2].base_stat},
+            {name: 'Ataque Esp.', value: data.stats[3].base_stat},
+            {name: 'Defensa Esp.', value: data.stats[4].base_stat},
+            {name: 'Velocidad', value: data.stats[5].base_stat}
+          ];
         },
         error: (error) => {
           console.error('Error cargando datos del Pokémon:', error);

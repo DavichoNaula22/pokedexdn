@@ -1,15 +1,17 @@
 <div class="pokedex-view">
     <div class="pokedex-container">
-        <h1 class="title">Pokédex</h1>
-        
-        <div class="display-section">
-            <app-pokedex [imageUrl]='pokemonImagen' 
-                        (clickPokemon)="changePokemon($event)">
-            </app-pokedex>
-        </div>
-
-        <div class="stats-section">
-            <app-grafico [pokemonId]="pokemonId"></app-grafico>
-        </div>
+      <h1 class="title">Pokédex</h1>
+      
+      <div class="display-section">
+        <app-pokedex 
+          [imageUrl]='pokemonImagen'
+          [currentPokemonId]="pokemonId"
+          (clickPokemon)="changePokemon($event)">
+        </app-pokedex>
+      </div>
+  
+      <div class="stats-section">
+        <app-grafico [pokemonId]="pokemonId"></app-grafico>
+      </div>
     </div>
-</div>
+  </div>

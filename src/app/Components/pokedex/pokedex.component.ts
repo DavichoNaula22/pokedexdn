@@ -1,29 +1,21 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-selector: 'app-pokedex',
-standalone: true,
-imports: [],
-templateUrl: './pokedex.component.html',
-styleUrl: './pokedex.component.css'
+  selector: 'app-pokedex',
+  standalone: true,
+  templateUrl: './pokedex.component.html',
+  styleUrls: ['./pokedex.component.css']
 })
 export class PokedexComponent {
-  @Input({ required: true }) imageUrl: string = '';
-
+  @Input() imageUrl: string = '';
+  @Input() currentPokemonId: number = 1;
   @Output() clickPokemon = new EventEmitter<number>();
 
-
-
-
-previousPokemon() {
-
+  previousPokemon() {
     this.clickPokemon.emit(-1);
-    // Lógica para mostrar el Pokémon anterior
-}
-nextPokemon() {
+  }
 
+  nextPokemon() {
     this.clickPokemon.emit(+1);
-    // Lógica para mostrar el siguiente Pokémon
   }
 }
-

@@ -1,5 +1,5 @@
 <section class="stats" *ngIf="nombre">
-  <h1>{{ nombre | titlecase }} - ID: {{ pokemonId }}</h1>
+  <h2 class="pokemon-name">{{ nombre | titlecase }}</h2>
   
   <div class="tipos">
     <span class="tipo-badge" *ngFor="let tipo of tipos">
@@ -8,51 +8,11 @@
   </div>
 
   <div class="stats-container">
-    <div class="stat-item">
-      <label>HP:</label>
+    <div class="stat-item" *ngFor="let stat of statsArray">
+      <label>{{stat.name}}:</label>
       <div class="stat-bar">
-        <div class="stat-fill" [style.width.%]="stats.hp/2"></div>
-        <span>{{ stats.hp }}</span>
-      </div>
-    </div>
-
-    <div class="stat-item">
-      <label>Ataque:</label>
-      <div class="stat-bar">
-        <div class="stat-fill" [style.width.%]="stats.ataque/2"></div>
-        <span>{{ stats.ataque }}</span>
-      </div>
-    </div>
-
-    <div class="stat-item">
-      <label>Defensa:</label>
-      <div class="stat-bar">
-        <div class="stat-fill" [style.width.%]="stats.defensa/2"></div>
-        <span>{{ stats.defensa }}</span>
-      </div>
-    </div>
-
-    <div class="stat-item">
-      <label>Ataque Esp.:</label>
-      <div class="stat-bar">
-        <div class="stat-fill" [style.width.%]="stats.ataqueEspecial/2"></div>
-        <span>{{ stats.ataqueEspecial }}</span>
-      </div>
-    </div>
-
-    <div class="stat-item">
-      <label>Defensa Esp.:</label>
-      <div class="stat-bar">
-        <div class="stat-fill" [style.width.%]="stats.defensaEspecial/2"></div>
-        <span>{{ stats.defensaEspecial }}</span>
-      </div>
-    </div>
-
-    <div class="stat-item">
-      <label>Velocidad:</label>
-      <div class="stat-bar">
-        <div class="stat-fill" [style.width.%]="stats.velocidad/2"></div>
-        <span>{{ stats.velocidad }}</span>
+        <div class="stat-fill" [style.width.%]="stat.value/2"></div>
+        <span class="stat-value">{{ stat.value }}</span>
       </div>
     </div>
   </div>

@@ -11,35 +11,103 @@
   object-fit: contain;
   filter: drop-shadow(0 0 10px rgba(0,0,0,0.3));
   transition: transform 0.3s ease;
+  animation: float 3s ease-in-out infinite;
 }
 
-.pokemon-image:hover {
-  transform: scale(1.1);
-  animation: bounce 0.5s infinite alternate;
-}
-
-.controls {
+/* Estilos para los botones */
+.button-container {
   display: flex;
   gap: 20px;
+  margin-top: 20px;
 }
 
-button {
-  padding: 10px 20px;
+.nav-button {
+  padding: 12px 25px;
+  font-size: 16px;
   border: none;
   border-radius: 25px;
-  background: #30a7d7;
+  background: linear-gradient(145deg, #ff3c3c, #cc0000);
   color: white;
   font-weight: bold;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 0 #8b0000,
+    0 5px 5px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
 }
 
-button:hover {
-  transform: scale(1.05);
-  background: #1b82b1;
+.nav-button:hover {
+  transform: translateY(2px);
+  box-shadow: 
+    0 2px 0 #8b0000,
+    0 3px 3px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(145deg, #ff4f4f, #dd0000);
 }
 
-@keyframes bounce {
-  from { transform: translateY(0); }
-  to { transform: translateY(-10px); }
+.nav-button:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+/* Efecto de brillo en los botones */
+.nav-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: 0.5s;
+}
+
+.nav-button:hover::after {
+  left: 100%;
+}
+
+/* Iconos dentro de los botones */
+.nav-button i {
+  margin: 0 5px;
+  font-size: 14px;
+}
+
+/* Animación de flotación para la imagen del Pokémon */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Estilo para el contenedor de la imagen */
+.pokemon-image-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.1),
+    inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .nav-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .pokemon-image {
+    width: 150px;
+    height: 150px;
+  }
 }
