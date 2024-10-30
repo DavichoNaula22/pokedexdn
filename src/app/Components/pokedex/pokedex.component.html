@@ -1,46 +1,56 @@
 <div class="arcade-container">
-    <div class="screen-container">
+  <!-- Contenedor principal que envuelve la pantalla y controles del "arcade" -->
+  <div class="screen-container">
+      <!-- Overlay de la pantalla para simular el efecto de escaneo -->
       <div class="screen-overlay"></div>
       
+      <!-- Encabezado que muestra el número y nombre del Pokémon -->
       <div class="pokemon-header">
-        <span class="pokemon-number">No. {{pokemonId}}</span>
-        <h2 class="pokemon-name">{{pokemonName | titlecase}}</h2>
+          <span class="pokemon-number">No. {{pokemonId}}</span>
+          <h2 class="pokemon-name">{{pokemonName | titlecase}}</h2>
       </div>
-  
+
+      <!-- Display principal para mostrar imagen, tipos y descripción del Pokémon -->
       <div class="main-display">
-        <img [src]="imageUrl" alt="Pokemon" class="pokemon-image" [class.loading]="isLoading">
-        
-        <div class="pokemon-types">
-          <span *ngFor="let type of pokemonTypes" 
-                class="type-badge"
-                [style.background-color]="getTypeColor(type)">
-            {{type | titlecase}}
-          </span>
-        </div>
-  
-        <p class="pokemon-description">{{pokemonDescription}}</p>
-      </div>
-  
-      <div class="evolution-chain" *ngIf="evolutionChain.length > 1">
-        <h3>Evoluciones</h3>
-        <div class="evolution-sprites">
-          <div *ngFor="let evo of evolutionChain" 
-               class="evolution-item"
-               [class.current]="evo.id === pokemonId"
-               (click)="selectEvolution(evo.id)">
-            <img [src]="evo.sprite" [alt]="evo.name">
-            <span>{{evo.name | titlecase}}</span>
+          <!-- Imagen del Pokémon con una clase dinámica para indicar carga -->
+          <img [src]="imageUrl" alt="Pokemon" class="pokemon-image" [class.loading]="isLoading">
+
+          <!-- Etiquetas de tipos del Pokémon, con color dinámico basado en su tipo -->
+          <div class="pokemon-types">
+              <span *ngFor="let type of pokemonTypes" 
+                    class="type-badge"
+                    [style.background-color]="getTypeColor(type)">
+                {{type | titlecase}}
+              </span>
           </div>
-        </div>
+
+          <!-- Descripción del Pokémon -->
+          <p class="pokemon-description">{{pokemonDescription}}</p>
       </div>
-    </div>
-  
-    <div class="controls">
+
+      <!-- Cadena de evoluciones, visible solo si existen evoluciones adicionales -->
+      <div class="evolution-chain" *ngIf="evolutionChain.length > 1">
+          <h3>Evoluciones</h3>
+          <div class="evolution-sprites">
+              <!-- Iteración sobre cada evolución; resalta la actual y permite hacer clic -->
+              <div *ngFor="let evo of evolutionChain" 
+                   class="evolution-item"
+                   [class.current]="evo.id === pokemonId"
+                   (click)="selectEvolution(evo.id)">
+                  <img [src]="evo.sprite" [alt]="evo.name">
+                  <span>{{evo.name | titlecase}}</span>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Controles para navegar entre Pokémon -->
+  <div class="controls">
       <button (click)="previousPokemon()" class="arcade-btn">
-        <span class="btn-text">◄ Anterior</span>
+          <span class="btn-text">◄ Anterior</span>
       </button>
       <button (click)="nextPokemon()" class="arcade-btn">
-        <span class="btn-text">Siguiente ►</span>
+          <span class="btn-text">Siguiente ►</span>
       </button>
-    </div>
   </div>
+</div>

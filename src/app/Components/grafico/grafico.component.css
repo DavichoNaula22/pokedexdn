@@ -1,125 +1,131 @@
+/* Estilo principal del contenedor de estadísticas */
 .stats {
-  padding: 20px;
-  background: #2c3e50;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3),
-              inset 0 0 15px rgba(0, 0, 0, 0.5);
-  color: #ecf0f1;
-  margin: 20px;
-  border: 3px solid #34495e;
-  max-width: 90%; /* Hacer el contenedor más flexible */
-  margin: 20px auto; /* Centrar el contenedor */
+  padding: 20px; /* Espaciado interno del contenedor */
+  background: #2c3e50; /* Color de fondo oscuro */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), /* Sombra externa */
+              inset 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra interna */
+  color: #ecf0f1; /* Color del texto */
+  margin: 20px auto; /* Márgenes para centrar el contenedor */
+  border: 3px solid #34495e; /* Borde del contenedor */
+  max-width: 90%; /* Hacer el contenedor flexible */
 }
 
+/* Estilo para el título */
 h1 {
-  text-align: center;
-  color: #ecf0f1;
-  text-transform: capitalize;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.5em;
+  text-align: center; /* Centrar el título */
+  color: #ecf0f1; /* Color del texto */
+  text-transform: capitalize; /* Primera letra en mayúscula */
+  margin-bottom: 20px; /* Espaciado inferior */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+  font-family: 'Press Start 2P', cursive; /* Fuente personalizada */
+  font-size: 1.5em; /* Tamaño del texto */
 }
 
+/* Contenedor de los tipos de Pokémon */
 .tipos {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin: 15px 0;
-  flex-wrap: wrap;
+  display: flex; /* Alineación horizontal */
+  gap: 10px; /* Espacio entre elementos */
+  justify-content: center; /* Centrar los elementos */
+  margin: 15px 0; /* Márgenes verticales */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
 }
 
+/* Estilo de las etiquetas de tipo de Pokémon */
 .tipo-badge {
-  padding: 8px 20px;
-  border-radius: 25px;
-  background: linear-gradient(45deg, #3498db, #2980b9);
-  color: white;
-  font-size: 0.9em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 20px; /* Espaciado interno */
+  border-radius: 25px; /* Bordes redondeados */
+  background: linear-gradient(45deg, #3498db, #2980b9); /* Degradado de fondo */
+  color: white; /* Color del texto */
+  font-size: 0.9em; /* Tamaño de fuente */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra externa */
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Borde ligero */
 }
 
+/* Contenedor de estadísticas individuales */
 .stats-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 25px;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  border-radius: 10px;
+  display: flex; /* Flexbox para organizar los elementos */
+  flex-direction: column; /* Columnas para cada estadística */
+  gap: 15px; /* Espacio entre estadísticas */
+  margin-top: 25px; /* Margen superior */
+  background: rgba(0, 0, 0, 0.2); /* Fondo transparente */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 10px; /* Bordes redondeados */
 }
 
+/* Estilo de cada estadística */
 .stat-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+  display: flex; /* Flexbox para organizar la etiqueta y la barra */
+  align-items: center; /* Alineación central */
+  gap: 15px; /* Espacio entre la etiqueta y la barra */
 }
 
+/* Contenedor de la barra de cada estadística */
 .stat-bar {
-  flex-grow: 1;
-  height: 25px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
-  overflow: hidden;
-  position: relative;
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  flex-grow: 1; /* Expande la barra para ocupar espacio disponible */
+  height: 25px; /* Altura de la barra */
+  background: rgba(0, 0, 0, 0.3); /* Fondo oscuro */
+  border-radius: 15px; /* Bordes redondeados */
+  overflow: hidden; /* Oculta contenido que se desborda */
+  position: relative; /* Posicionamiento relativo para elementos internos */
+  border: 2px solid rgba(255, 255, 255, 0.1); /* Borde ligero */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra interna */
 }
 
+/* Relleno animado de la barra de estadística */
 .stat-fill {
-  height: 100%;
-  background: linear-gradient(90deg, 
-    rgba(52, 152, 219, 0.8),
-    rgba(41, 128, 185, 0.9)
-  );
-  transition: width 0.5s ease-out;
-  box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+  height: 100%; /* Altura completa */
+  background: linear-gradient(90deg, rgba(52, 152, 219, 0.8), rgba(41, 128, 185, 0.9)); /* Degradado de fondo */
+  transition: width 0.5s ease-out; /* Transición suave para cambios de ancho */
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.5); /* Sombra */
 }
 
+/* Texto dentro de la barra de estadística */
 .stat-bar span {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  font-weight: bold;
-  font-size: 0.9em;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  position: absolute; /* Posicionamiento absoluto dentro de la barra */
+  right: 10px; /* Separación del borde derecho */
+  top: 50%; /* Centrado vertical */
+  transform: translateY(-50%); /* Ajuste preciso para centrar */
+  color: white; /* Color del texto */
+  font-weight: bold; /* Texto en negrita */
+  font-size: 0.9em; /* Tamaño de fuente */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra del texto */
 }
 
+/* Estilo de las etiquetas (nombres de estadísticas) */
 label {
-  min-width: 120px;
-  font-weight: bold;
-  color: #ecf0f1;
-  text-transform: uppercase;
-  font-size: 0.9em;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  min-width: 120px; /* Ancho mínimo */
+  font-weight: bold; /* Texto en negrita */
+  color: #ecf0f1; /* Color de texto */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  font-size: 0.9em; /* Tamaño de fuente */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra del texto */
 }
 
 /* Efectos hover */
 .stat-bar:hover .stat-fill {
-  filter: brightness(1.2);
+  filter: brightness(1.2); /* Aumenta el brillo en hover */
 }
 
 .tipo-badge:hover {
-  transform: scale(1.05);
-  transition: transform 0.2s ease;
+  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+  transition: transform 0.2s ease; /* Transición suave */
 }
 
 /* Animación para las barras de estadísticas */
 @keyframes fillBar {
-  from { width: 0; }
-  to { width: 100%; }
+  from { width: 0; } /* Ancho inicial */
+  to { width: 100%; } /* Ancho completo */
 }
 
 .stat-fill {
-  animation: fillBar 1s ease-out;
+  animation: fillBar 1s ease-out; /* Aplica la animación a las barras */
 }
 
-/* Responsive design */
+/* Diseño responsivo para pantallas pequeñas */
 @media (max-width: 600px) {
   .stats {
     padding: 15px;
@@ -131,8 +137,8 @@ label {
   }
 
   .stat-item {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; /* Cambia a diseño en columna */
+    align-items: flex-start; /* Alineación a la izquierda */
   }
 
   label {
@@ -143,19 +149,19 @@ label {
 
 @media (max-width: 400px) {
   h1 {
-    font-size: 1em; /* Ajustar tamaño de fuente para pantallas pequeñas */
+    font-size: 1em; /* Ajusta tamaño de fuente en móviles */
   }
 
   .tipo-badge {
-    font-size: 0.8em; /* Reducir tamaño de texto de las etiquetas de tipo */
-    padding: 6px 15px; /* Reducir padding de las etiquetas de tipo */
+    font-size: 0.8em; /* Reduce tamaño de texto */
+    padding: 6px 15px; /* Reduce padding */
   }
 
   .stat-bar {
-    height: 20px; /* Reducir altura de las barras de estadísticas */
+    height: 20px; /* Reduce altura de las barras */
   }
 
   .stat-fill {
-    box-shadow: none; /* Eliminar sombra para móviles */
+    box-shadow: none; /* Elimina sombra en móviles */
   }
 }

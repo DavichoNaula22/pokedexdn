@@ -1,17 +1,25 @@
 <section class="stats" *ngIf="nombre">
+  <!-- Muestra el nombre del Pokémon, capitalizando cada palabra -->
   <h2 class="pokemon-name">{{ nombre | titlecase }}</h2>
   
+  <!-- Contenedor de los tipos del Pokémon, iterando sobre el array "tipos" -->
   <div class="tipos">
     <span class="tipo-badge" *ngFor="let tipo of tipos">
       {{ tipo | titlecase }}
     </span>
   </div>
 
+  <!-- Contenedor principal de las estadísticas -->
   <div class="stats-container">
+    <!-- Itera sobre el array de estadísticas, mostrando cada estadística en una barra -->
     <div class="stat-item" *ngFor="let stat of statsArray">
+      <!-- Muestra el nombre de la estadística -->
       <label>{{stat.name}}:</label>
+      <!-- Contenedor de la barra de progreso de la estadística -->
       <div class="stat-bar">
-        <div class="stat-fill" [style.width.%]="stat.value/2"></div>
+        <!-- Barra de llenado de la estadística. El ancho se ajusta en función del valor de la estadística -->
+        <div class="stat-fill" [style.width.%]="stat.value / 2"></div>
+        <!-- Muestra el valor numérico de la estadística -->
         <span class="stat-value">{{ stat.value }}</span>
       </div>
     </div>

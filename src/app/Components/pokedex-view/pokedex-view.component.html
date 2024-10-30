@@ -1,15 +1,21 @@
 <div class="pokedex-view">
+    <!-- Contenedor principal de la vista Pokédex -->
     <div class="pokedex-container">
+        <!-- Título principal de la Pokédex -->
         <h1 class="title">Pokédex</h1>
         
+        <!-- Sección de pantalla para mostrar el Pokémon seleccionado -->
         <div class="display-section">
-            <app-pokedex [imageUrl]='pokemonImagen' 
-                        [pokemonId]='pokemonId'
-                        (clickPokemon)="changePokemon($event)">
+            <!-- Componente del Pokémon. Recibe la URL de imagen y el ID del Pokémon actual -->
+            <app-pokedex [imageUrl]="pokemonImagen" 
+                         [pokemonId]="pokemonId"
+                         (clickPokemon)="changePokemon($event)">
             </app-pokedex>
         </div>
 
+        <!-- Sección de estadísticas del Pokémon actual -->
         <div class="stats-section">
+            <!-- Componente gráfico que recibe el ID del Pokémon para mostrar sus estadísticas -->
             <app-grafico [pokemonId]="pokemonId"></app-grafico>
         </div>
     </div>

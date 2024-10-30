@@ -1,0 +1,65 @@
+.welcome-overlay {
+    position: fixed; /* Fija la superposición en la pantalla, cubriendo toda el área visible */
+    top: 0; /* Posiciona en la parte superior de la pantalla */
+    left: 0; /* Posiciona en la parte izquierda de la pantalla */
+    width: 100%; /* Establece el ancho de la superposición para cubrir toda la pantalla */
+    height: 100%; /* Establece la altura de la superposición para cubrir toda la pantalla */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semi-transparente */
+    display: flex; /* Usa flexbox para alinear elementos dentro de la superposición */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    animation: fade-in-out 2s ease-in-out infinite; /* Añade una animación de desvanecimiento */
+}
+
+@keyframes fade-in-out {
+    0%, 100% { opacity: 1; } /* La opacidad al principio y al final es completa */
+    50% { opacity: 0.7; } /* La opacidad en el punto medio es más baja */
+}
+
+.welcome-modal {
+    background-color: #2c3e50; /* Fondo oscuro para el modal */
+    padding: 20px; /* Añade espacio alrededor del contenido */
+    border-radius: 10px; /* Bordes redondeados para el modal */
+    text-align: center; /* Centra el texto */
+    color: white; /* Texto blanco */
+    font-family: 'Press Start 2P', cursive; /* Estilo de fuente arcade */
+    box-shadow: 0 0 20px rgba(255, 60, 0, 0.5); /* Sombra con efecto de luz roja */
+    animation: slide-up-down 2s ease-in-out infinite; /* Animación de subir y bajar */
+}
+
+@keyframes slide-up-down {
+    0%, 100% { transform: translateY(0); } /* Mantiene la posición inicial */
+    50% { transform: translateY(-20px); } /* Desplaza el modal hacia arriba */
+}
+
+.welcome-modal:hover {
+    transform: scale(1.05); /* Escala el modal ligeramente al pasar el mouse */
+}
+
+h2 {
+    font-size: 1.5em; /* Ajusta el tamaño del encabezado */
+    margin-bottom: 20px; /* Añade un margen debajo del encabezado */
+    color: #ff3c00; /* Color rojo brillante para el encabezado */
+}
+
+p {
+    margin-bottom: 20px; /* Espacio inferior en los párrafos */
+}
+
+button {
+    background-color: #ff3c00; /* Color de fondo rojo para el botón */
+    border: none; /* Elimina el borde predeterminado */
+    padding: 10px 20px; /* Añade espacio interior al botón */
+    color: white; /* Texto en color blanco */
+    font-family: 'Press Start 2P', cursive; /* Fuente arcade */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s, transform 0.3s; /* Transición en el color de fondo y el tamaño */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Añade una sombra para resaltar el botón */
+}
+
+button:hover {
+    background-color: #ff6b00; /* Cambia el color al pasar el mouse */
+    transform: scale(1.1); /* Agranda el botón al pasar el mouse */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5); /* Sombra más intensa en hover */
+}
