@@ -3,6 +3,8 @@
   padding: 20px;
   border-radius: 15px;
   border: 4px solid #ff3c00;
+  max-width: 90%; /* Hacer el contenedor más flexible */
+  margin: 0 auto; /* Centrar el contenedor */
 }
 
 .screen-container {
@@ -101,5 +103,46 @@
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+/* Media queries para mejorar la responsividad */
+@media (max-width: 768px) {
+  .arcade-container {
+    padding: 15px; /* Reducir padding en el contenedor */
+  }
+
+  .pokemon-image {
+    width: 150px; /* Ajustar tamaño de imagen */
+    height: 150px; /* Ajustar tamaño de imagen */
+  }
+
+  .arcade-btn {
+    padding: 12px 24px; /* Reducir padding de botones */
+  }
+
+  .evolution-sprites img {
+    width: 50px; /* Ajustar tamaño de sprites */
+    height: 50px; /* Ajustar tamaño de sprites */
+  }
+}
+
+@media (max-width: 480px) {
+  .arcade-container {
+    padding: 10px; /* Ajustar padding para dispositivos móviles */
+  }
+
+  .pokemon-image {
+    width: 120px; /* Ajustar tamaño de imagen para móviles */
+    height: 120px; /* Ajustar tamaño de imagen para móviles */
+  }
+
+  .arcade-btn {
+    padding: 10px 20px; /* Ajustar padding de botones para móviles */
+  }
+
+  .evolution-sprites img {
+    width: 40px; /* Ajustar tamaño de sprites para móviles */
+    height: 40px; /* Ajustar tamaño de sprites para móviles */
   }
 }

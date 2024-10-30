@@ -7,6 +7,8 @@
   color: #ecf0f1;
   margin: 20px;
   border: 3px solid #34495e;
+  max-width: 90%; /* Hacer el contenedor más flexible */
+  margin: 20px auto; /* Centrar el contenedor */
 }
 
 h1 {
@@ -136,5 +138,24 @@ label {
   label {
     min-width: auto;
     margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1em; /* Ajustar tamaño de fuente para pantallas pequeñas */
+  }
+
+  .tipo-badge {
+    font-size: 0.8em; /* Reducir tamaño de texto de las etiquetas de tipo */
+    padding: 6px 15px; /* Reducir padding de las etiquetas de tipo */
+  }
+
+  .stat-bar {
+    height: 20px; /* Reducir altura de las barras de estadísticas */
+  }
+
+  .stat-fill {
+    box-shadow: none; /* Eliminar sombra para móviles */
   }
 }
